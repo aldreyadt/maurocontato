@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mauro Armelin — Amigos da Terra</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde: #1B4D2E;
+      --verde-medio: #2E7D52;
+      --verde-claro: #A8D5B5;
+      --creme: #F5F0E8;
+      --terra: #7C5C3A;
+      --texto: #1A2E1F;
+    }
+
+    body {
+      min-height: 100dvh;
+      background-color: var(--creme);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(46,125,82,0.18) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231B4D2E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 2rem 2rem;
+      max-width: 380px;
+      width: 100%;
+      box-shadow:
+        0 2px 4px rgba(27,77,46,0.06),
+        0 12px 40px rgba(27,77,46,0.12),
+        0 0 0 1px rgba(27,77,46,0.06);
+      text-align: center;
+      animation: rise 0.7s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .org-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EAF3EE;
+      color: var(--verde-medio);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .org-badge svg { flex-shrink: 0; }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde-medio), var(--verde));
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: white;
+      letter-spacing: -0.02em;
+      box-shadow: 0 4px 20px rgba(27,77,46,0.25);
+      position: relative;
+    }
+
+    .avatar::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--verde-claro);
+      opacity: 0.5;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--texto);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .cargo {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--verde-medio);
+      margin-bottom: 0.2rem;
+    }
+
+    .org {
+      font-size: 12px;
+      color: #8A9E8F;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #D8E8DC, transparent);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #F0F4F1;
+      font-size: 13.5px;
+      color: #444;
+    }
+
+    .info-list li:last-child { border-bottom: none; }
+
+    .info-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #EAF3EE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--verde-medio);
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 20px;
+      background: linear-gradient(135deg, var(--verde-medio), var(--verde));
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      box-shadow: 0 4px 16px rgba(27,77,46,0.3);
+      letter-spacing: 0.01em;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,77,46,0.35);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      opacity: 0.9;
+    }
+
+    .btn svg { flex-shrink: 0; }
+
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 11px;
+      color: #B0BDB3;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="org-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+      Amigos da Terra
+    </div>
+
+    <div class="avatar">MA</div>
+
+    <h1>Mauro Armelin</h1>
+    <p class="cargo">Diretor Executivo</p>
+    <p class="org">Amigos da Terra — Amazônia Brasileira</p>
+
+    <div class="divider"></div>
+
+    <ul class="info-list">
+      <li>
+        <span class="info-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.3 11.8 19.79 19.79 0 0 1 1.22 3.18 2 2 0 0 1 3.2 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+        </span>
+        +55 11 98962-2894
+      </li>
+      <li>
+        <span class="info-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </span>
+        mauro@amazonia.org.br
+      </li>
+      <li>
+        <span class="info-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </span>
+        linktr.ee/mauro.armelin
+      </li>
+    </ul>
+
+    <a class="btn" href="Mauro_Armelin.vcf" download="Mauro_Armelin.vcf" id="saveBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Salvar Contato
+    </a>
+
+    <p class="footer">Clique para adicionar à sua agenda.<br>Compatível com iPhone e Android.</p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('saveBtn');
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isAndroid = /android/i.test(navigator.userAgent);
+
+    if (isIOS) {
+      btn.href = 'Mauro_Armelin.vcf';
+      btn.removeAttribute('download');
+    } else {
+      btn.href = 'Mauro_Armelin.vcf';
+      btn.setAttribute('download', 'Mauro_Armelin.vcf');
+    }
+  </script>
+</body>
+</html>
